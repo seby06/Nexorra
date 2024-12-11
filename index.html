@@ -79,68 +79,7 @@
         }
     </style>
 </head>
-<body><!DOCTYPE html>
-<html>
-<head>
-    <title>Nexorra</title>
-    <style>
-        @font-face {
-            font-family: 'Josefin Sans';
-            src: url('fonts/JosefinSans-Italic.ttf') format('truetype'); /* Use .ttf file */
-        }
-
-        body {
-            background-color: black;
-            color: white;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Full viewport height */
-            font-family: 'Josefin Sans', sans-serif; /* Use the custom font */
-            animation: slideDown 1s forwards; /* Slide down starts instantly */
-        }
-
-        .button-container {
-            margin-top: 20px; /* Adds space under the Nexorra text */
-        }
-
-        button {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            font-family: 'Josefin Sans', sans-serif;
-        }
-
-        button:hover {
-            background-color: #555;
-        }
-    </style>
-</head>
 <body>
-        <button id="openButton">Open in about:blank</button>
-    </div>
-
-    <script>
-        // Place this script at the end of the body section
-        document.getElementById("openButton").addEventListener("click", function () {
-            var urlObj = new window.URL(window.location.href);
-            var url = https://nexorra.vercel.app"example link"; // Replace "example link" with your actual URL
-            if (url) {
-                var win = window.open(url, '_blank');
-                if (!win) {
-                    alert("Popup blocked! Please allow popups for this site.");
-                }
-            }
-        });
-    </script>
-</body>
-</html>
-
     <div class="navbar">
         <a href="#" class="nexorra">Nexorra</a>  
         <a href="#">Games</a>
