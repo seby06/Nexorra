@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nexorra</title>
+    <style>
+        @font-face {
+            font-family: 'Josefin Sans';
+            src: url('fonts/JosefinSans-Italic.ttf') format('truetype'); /* Use .ttf file */
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            font-family: 'Josefin Sans', sans-serif; /* Use the custom font */
+            animation: slideDown 1s forwards; /* Slide down starts instantly */
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #333;
+            display: flex;
+            justify-content: space-between; /* Aligns elements to space equally */
+            padding: 1em;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 0 1em; /* Optional: Adds space around the text */
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-size {
+            font-size: 10em; /* Larger text size */
+            margin-top: -300px; /* Adjusts the position upwards */
+            opacity: 0; /* Start text hidden for fade-in */
+            animation: fadeIn 2s forwards; /* Fade in starts instantly */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-300px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Nexorra</a>  
+        <a href="#">Games</a>
+        <a href="#">Proxy</a>
+        <a href="#">Settings</a>
+    </div>
+    <h1 class="text-center text-size">Nexorra</h1>
+</body>
+</html>
