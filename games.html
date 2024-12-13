@@ -5,7 +5,9 @@
     <style>
         @font-face {
             font-family: 'Josefin Sans';
-            src: url('fonts/JosefinSans-Italic.ttf') format('truetype'); /* Use .ttf file */
+            src: url('fonts/JosefinSans-Italic.ttf') format('truetype');
+            font-style: italic;
+            font-weight: normal;
         }
 
         body {
@@ -16,15 +18,15 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full viewport height */
-            font-family: 'Josefin Sans', sans-serif; /* Use the custom font */
+            height: 100vh;
+            font-family: 'Josefin Sans', sans-serif;
         }
 
         .navbar {
             width: 100%;
             background-color: #333;
             display: flex;
-            justify-content: space-between; /* Aligns elements to space equally */
+            justify-content: space-between;
             padding: 1em;
             position: fixed;
             top: 0;
@@ -35,29 +37,29 @@
             color: white;
             text-decoration: none;
             font-size: 1.2em;
-            padding: 0 1em; /* Optional: Adds space around the text */
+            padding: 0 1em;
         }
 
         .navbar a.nexorra {
-            font-size: 1.5em; /* Increase the size of the Nexorra button */
-            padding: 0 2em; /* Optional: Adjust the padding to give more space */
+            font-size: 1.5em;
+            padding: 0 2em;
         }
 
         .navbar a:nth-of-type(n+2) {
-            margin-left: auto; /* Align the rest of the buttons to the right */
+            margin-left: auto;
         }
 
         .content {
             text-align: center;
-            margin-top: 100px; /* To avoid content overlapping with navbar */
+            margin-top: 100px;
             display: flex;
             justify-content: center;
-            gap: 20px; /* Adjust the gap as needed to control the space between buttons */
-            flex-direction: row; /* Align the buttons horizontally */
+            gap: 20px;
+            flex-direction: row;
         }
 
         .text-size {
-            font-size: 3em; /* Larger text size for the page title */
+            font-size: 3em;
             margin-bottom: 1em;
         }
 
@@ -75,10 +77,11 @@
             font-family: 'Josefin Sans', sans-serif;
             cursor: pointer;
             border-radius: 10px;
-            overflow: hidden; /* Clip image within the button */
+            overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            position: relative; /* Ensure child elements are positioned relative to the button */
+            position: relative;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none; /* Prevent underline */
         }
 
         .custom-button:hover {
@@ -92,17 +95,18 @@
             position: absolute;
             top: 0;
             left: 0;
-            z-index: -1; /* Keep the image behind the text */
-            opacity: 0; /* Hide by default */
-            transition: opacity 0.3s ease; /* Change to handle hover */
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .custom-button:hover img {
-            opacity: 1; /* Make the image visible when hovered */
+            opacity: 1;
         }
 
         .custom-button span {
-            z-index: 1; /* Text stays on top */
+            z-index: 1;
             padding: 0 10px;
         }
 
@@ -114,7 +118,7 @@
         }
 
         .footer img {
-            width: 200px; /* Size of the image to show */
+            width: 200px;
             height: auto;
             margin-top: 10px;
         }
@@ -131,32 +135,29 @@
 
     <!-- Main Content -->
     <div class="content">
-
         <!-- Custom Button 1 -->
-        <button class="custom-button" id="hoverButton1">
-            <img src="images/basket-random.png" alt="Button Background">
+        <a href="games/basket-random/index.html" class="custom-button">
+            <img src="images/basket-random.png" alt="Basket Random">
             <span>Basket Random</span>
-        </button>
+        </a>
 
         <!-- Custom Button 2 -->
-        <button class="custom-button" id="hoverButton2">
-            <img src="images/subway-surfers.png" alt="Button Background">
+        <a href="games/subway-surfers/index.html" class="custom-button">
+            <img src="images/subway-surfers.png" alt="Subway Surfers">
             <span>Subway Surfers</span>
-        </button>
-    </div>
+        </a>
 
-<!-- Custom Button 2 -->
-        <button class="custom-button" id="hoverButton2">
-            <img src="images/subway-surfers.png" alt="Button Background">
+        <!-- Custom Button 3 -->
+        <a href="games/chrome-dino/index.html" class="custom-button">
+            <img src="images/chrome-dino.png" alt="Chrome Dino">
             <span>Chrome Dino</span>
-        </button>
+        </a>
     </div>
 
     <!-- Footer with Image and Text -->
     <div class="footer">
-        <p>when you want to exit the game just press the back arrow button on your chromebook or press it in the browser</p>
-        <img src="images/back-example.png" alt="Selected Game">
+        <p>When you want to exit the game, press the back arrow button on your Chromebook or in the browser.</p>
+        <img src="images/back-example.png" alt="Back Example">
     </div>
-
 </body>
 </html>
