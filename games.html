@@ -53,6 +53,7 @@
             display: flex;
             justify-content: center;
             gap: 20px; /* Adjust the gap as needed to control the space between buttons */
+            flex-direction: row; /* Align the buttons horizontally */
         }
 
         .text-size {
@@ -93,16 +94,29 @@
             left: 0;
             z-index: -1; /* Keep the image behind the text */
             opacity: 0; /* Hide by default */
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease; /* Change to handle hover */
         }
 
-        .custom-button.active img {
-            opacity: 1; /* Make the image visible when active */
+        .custom-button:hover img {
+            opacity: 1; /* Make the image visible when hovered */
         }
 
         .custom-button span {
             z-index: 1; /* Text stays on top */
             padding: 0 10px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .footer img {
+            width: 200px; /* Size of the image to show */
+            height: auto;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -131,43 +145,18 @@
         </button>
     </div>
 
-    <script>
-        const button1 = document.getElementById('hoverButton1');
-        const button2 = document.getElementById('hoverButton2');
+<!-- Custom Button 2 -->
+        <button class="custom-button" id="hoverButton2">
+            <img src="images/subway-surfers.png" alt="Button Background">
+            <span>Chrome Dino</span>
+        </button>
+    </div>
 
-        // Add 'active' class on hover for button 1
-        button1.addEventListener('mouseover', () => {
-            button1.classList.add('active');
-        });
+    <!-- Footer with Image and Text -->
+    <div class="footer">
+        <p>when you want to exit the game just press the back arrow button on your chromebook or press it in the browser</p>
+        <img src="images/back-example.png" alt="Selected Game">
+    </div>
 
-        // Ensure the 'active' class persists after the hover ends for button 1
-        button1.addEventListener('mouseout', () => {
-            if (!button1.classList.contains('active')) {
-                button1.classList.add('active');
-            }
-        });
-
-        // Redirect to another HTML file when button 1 is clicked
-        button1.addEventListener('click', () => {
-            window.location.href = 'games/basket-random/index.html'; // Change this to your specific file path
-        });
-
-        // Add 'active' class on hover for button 2
-        button2.addEventListener('mouseover', () => {
-            button2.classList.add('active');
-        });
-
-        // Ensure the 'active' class persists after the hover ends for button 2
-        button2.addEventListener('mouseout', () => {
-            if (!button2.classList.contains('active')) {
-                button2.classList.add('active');
-            }
-        });
-
-        // Redirect to another HTML file when button 2 is clicked
-        button2.addEventListener('click', () => {
-            window.location.href = 'games/subway-surfers/index.html'; // Change this to your specific file path
-        });
-    </script>
 </body>
 </html>
