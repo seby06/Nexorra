@@ -50,6 +50,9 @@
         .content {
             text-align: center;
             margin-top: 100px; /* To avoid content overlapping with navbar */
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Adjust the gap as needed to control the space between buttons */
         }
 
         .text-size {
@@ -115,31 +118,55 @@
     <!-- Main Content -->
     <div class="content">
 
-        <!-- Custom Button -->
-        <button class="custom-button" id="hoverButton">
+        <!-- Custom Button 1 -->
+        <button class="custom-button" id="hoverButton1">
             <img src="images/basket-random.png" alt="Button Background">
             <span>Basket Random</span>
+        </button>
+
+        <!-- Custom Button 2 -->
+        <button class="custom-button" id="hoverButton2">
+            <img src="images/subway-surfers.png" alt="Button Background">
+            <span>Subway Surfers</span>
         </button>
     </div>
 
     <script>
-        const button = document.getElementById('hoverButton');
+        const button1 = document.getElementById('hoverButton1');
+        const button2 = document.getElementById('hoverButton2');
 
-        // Add 'active' class on hover
-        button.addEventListener('mouseover', () => {
-            button.classList.add('active');
+        // Add 'active' class on hover for button 1
+        button1.addEventListener('mouseover', () => {
+            button1.classList.add('active');
         });
 
-        // Ensure the 'active' class persists after the hover ends
-        button.addEventListener('mouseout', () => {
-            if (!button.classList.contains('active')) {
-                button.classList.add('active');
+        // Ensure the 'active' class persists after the hover ends for button 1
+        button1.addEventListener('mouseout', () => {
+            if (!button1.classList.contains('active')) {
+                button1.classList.add('active');
             }
         });
 
-        // Redirect to another HTML file when clicked
-        button.addEventListener('click', () => {
+        // Redirect to another HTML file when button 1 is clicked
+        button1.addEventListener('click', () => {
             window.location.href = 'games/basket-random/index.html'; // Change this to your specific file path
+        });
+
+        // Add 'active' class on hover for button 2
+        button2.addEventListener('mouseover', () => {
+            button2.classList.add('active');
+        });
+
+        // Ensure the 'active' class persists after the hover ends for button 2
+        button2.addEventListener('mouseout', () => {
+            if (!button2.classList.contains('active')) {
+                button2.classList.add('active');
+            }
+        });
+
+        // Redirect to another HTML file when button 2 is clicked
+        button2.addEventListener('click', () => {
+            window.location.href = 'games/subway-surfers/index.html'; // Change this to your specific file path
         });
     </script>
 </body>
