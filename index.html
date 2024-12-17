@@ -2,33 +2,47 @@
 <html>
 <head>
     <title>Nexorra</title>
+    <script src="js/particles/particles.min.js"></script> <!-- Local Particles.js -->
     <style>
         @font-face {
             font-family: 'Josefin Sans';
             src: url('fonts/JosefinSans-Italic.ttf') format('truetype'); /* Use .ttf file */
         }
 
+        /* Reset body styles */
         body {
+            margin: 0;
+            padding: 0;
             background-color: black;
             color: white;
-            margin: 0;
+            font-family: 'Josefin Sans', sans-serif;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full viewport height */
-            font-family: 'Josefin Sans', sans-serif; /* Use the custom font */
-            animation: slideDown 1s forwards; /* Slide down starts instantly */
+            height: 100vh;
+            overflow: hidden;
             position: relative;
+        }
+
+        /* Particles.js container */
+        #particles-js {
+            position: fixed; /* Keep particles fixed in the background */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind all content */
+            background-color: black; /* Fallback background */
         }
 
         .navbar {
             width: 100%;
             background-color: #333;
             display: flex;
-            justify-content: space-between; /* Aligns elements to space equally */
+            justify-content: space-between;
             padding: 1em;
-            position: fixed;
+            position: fixed; /* Fix navbar at the top */
             top: 0;
             z-index: 1000;
         }
@@ -37,16 +51,16 @@
             color: white;
             text-decoration: none;
             font-size: 1.2em;
-            padding: 0 1em; /* Optional: Adds space around the text */
+            padding: 0 1em;
         }
 
         .navbar a.nexorra {
-            font-size: 1.5em; /* Increase the size of the Nexorra button */
-            padding: 0 2em; /* Optional: Adjust the padding to give more space */
+            font-size: 1.5em;
+            padding: 0 2em;
         }
 
         .navbar a:nth-of-type(n+2) {
-            margin-left: auto; /* Align the rest of the buttons to the right */
+            margin-left: auto;
         }
 
         .text-center {
@@ -56,8 +70,8 @@
         .text-size {
             font-size: 10em; /* Larger text size */
             margin-top: -300px; /* Adjusts the position upwards */
-            opacity: 0; /* Start text hidden for fade-in */
-            animation: fadeIn 2s forwards; /* Fade in starts instantly */
+            opacity: 0;
+            animation: fadeIn 2s forwards, slideDown 1s forwards;
         }
 
         @keyframes fadeIn {
@@ -77,15 +91,99 @@
                 transform: translateY(0);
             }
         }
+
+        .button-open {
+            background-color: black;
+            color: white;
+            border: 2px solid white; /* Adds border for emphasis */
+            padding: 1em 2em;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-family: 'Josefin Sans', sans-serif; /* Use the same font as the rest */
+        }
+
+        .button-open:hover {
+            background-color: white;
+            color: black;
+        }
     </style>
 </head>
 <body>
+    <!-- Particles.js container -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation Bar -->
     <div class="navbar">
         <a href="index.html" class="nexorra">Nexorra</a>  
         <a href="games.html">Games</a>
         <a href="#">Proxy</a>
         <a href="#">Settings</a>
     </div>
+
+    <!-- Main Heading -->
     <h1 class="text-center text-size">Nexorra</h1>
+
+    <!-- Button to open in about:blank -->
+    <button class="button-open" onclick="openInAboutBlank()">Open in about:blank</button>
+
+    <!-- Particles.js Initialization Script -->
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": { "value": "#ffffff" },
+                "shape": {
+                    "type": "circle",
+                    "stroke": { "width": 0, "color": "#000000" }
+                },
+
+                "opacity": { "value": 0.5 },
+                "size": { "value": 3 },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 4,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+
+        function openInAboutBlank() {
+            const newWindow = window.open('about:blank', '_blank');
+            newWindow.document.write(document.documentElement.outerHTML);
+            newWindow.document.close();
+        }
+    </script>
 </body>
 </html>
