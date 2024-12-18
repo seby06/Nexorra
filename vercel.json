@@ -4,6 +4,6 @@
     { "source": "/games/(.*)", "destination": "/games/$1/index.html" }
   ],
   "routes": [
-    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
+    { "src": "/games/(.*)", "status": 404, "dest": "/404.html" }
   ]
 }
