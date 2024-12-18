@@ -79,16 +79,16 @@
     </div>
 
     <!-- Game Content -->
-    <iframe src="" id="game-frame" style="width: 100%; height: calc(100vh - 50px); border: none;"></iframe>
+    <iframe src="/games/<%= game %>" id="game-frame" style="width: 100%; height: calc(100vh - 50px); border: none;"></iframe>
 
     <!-- Fullscreen Button -->
     <button class="fullscreen-button" onclick="toggleFullscreen()">Fullscreen</button>
 
     <script>
-        // Set the source URL based on the current path
-        const path = window.location.pathname.replace('/player/', '/games/');
-        const game = path.substring(path.lastIndexOf('/') + 1);
-        document.getElementById('game-frame').src = `${path}.html`;
+        // Set the game path based on the URL
+        const path = window.location.pathname;
+        const game = path.replace('/player/', '/games/') + '.html';
+        document.getElementById('game-frame').src = game;
 
         function toggleFullscreen() {
             const element = document.documentElement;
