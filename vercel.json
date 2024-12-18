@@ -15,7 +15,7 @@
   ],
   "builds": [
     {
-      "src": "index.html",
+      "src": "games/index.html",
       "use": "@vercel/static"
     }
   ]
