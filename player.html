@@ -23,33 +23,6 @@
             overflow: hidden; /* Prevent overflow issues with games */
         }
 
-        .navbar {
-            width: 100%;
-            background-color: #333;
-            display: flex;
-            justify-content: space-between;
-            padding: 1em;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-            padding: 0 1em;
-        }
-
-        .navbar a.nexorra {
-            font-size: 1.5em;
-            padding: 0 2em;
-        }
-
-        .navbar a:nth-of-type(n+2) {
-            margin-left: auto;
-        }
-
         .fullscreen-button {
             position: fixed;
             bottom: 20px;
@@ -70,14 +43,6 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <a href="/" class="nexorra">Nexorra</a>  
-        <a href="/games">Games</a>
-        <a href="#">Proxy</a>
-        <a href="#">Settings</a>
-    </div>
-
     <!-- Game Content -->
     <iframe src="/games/<%= game %>" id="game-frame" style="width: 100%; height: calc(100vh - 50px); border: none;"></iframe>
 
@@ -86,9 +51,9 @@
 
     <script>
         // Set the game path based on the URL
-        const path = window.location.pathname;
-        const game = path.replace('/player/', '/games/') + '.html';
-        document.getElementById('game-frame').src = game;
+        const urlParams = new URLSearchParams(window.location.search);
+        const game = urlParams.get('game');
+        document.getElementById('game-frame').src = `/games/${game}.html`;
 
         function toggleFullscreen() {
             const element = document.documentElement;
