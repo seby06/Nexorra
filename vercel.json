@@ -1,8 +1,10 @@
 {
+  "cleanUrls": true,
   "rewrites": [
-    {
-      "source": "/:path*",
-      "destination": "/404.html"
-    }
+    { "source": "/games/:slug", "destination": "/player?game=:slug" },
+    { "source": "/player", "destination": "/404.html" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
   ]
 }
