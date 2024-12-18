@@ -1,7 +1,7 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/games/:slug", "destination": "/player?game=:slug" },
+    { "source": "/games/:slug*", "destination": "/player?game=:slug*" },
     { "source": "/player", "destination": "/404.html" }
   ],
   "routes": [
