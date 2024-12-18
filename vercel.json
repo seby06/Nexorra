@@ -1,6 +1,40 @@
 {
-  "cleanUrls": true,
-  "routes": [
-    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
+  "rewrites": [
+    {
+      "source": "/games/:path*",
+      "destination": "/games.html"
+    },
+    {
+      "source": "/player",
+      "destination": "/player.html"
+    },
+    {
+      "source": "/:path*",
+      "has": {
+        "method": "HEAD"
+      },
+      "destination": "/404.html"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/404.html"
+    }
+  ],
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/games/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400"
+        }
+      ]
+    }
   ]
 }
