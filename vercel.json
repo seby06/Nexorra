@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/games/:path*",
+      "destination": "/games.html"
+    },
+    {
+      "source": "/player/:game",
+      "destination": "/player.html?game=:game"
+    },
+    {
       "source": "/:path*",
       "destination": "/404.html"
     }
