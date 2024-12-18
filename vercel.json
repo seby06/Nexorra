@@ -1,14 +1,7 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/games/(.*)", "destination": "/games/$1/index.html" },
-    { "source": "/(.*)", "destination": "/$1.html" }
-  ],
-  "headers": [
-    {
-      "source": "/games/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
-    }
+    { "source": "/games/(.*)", "destination": "/games/$1/index.html" }
   ],
   "redirects": [
     { "source": "/(.*)", "destination": "/404.html", "statusCode": 404 }
