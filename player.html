@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Game Player - Nexorra</title>
+    <title>Player - Nexorra</title>
     <style>
         @font-face {
             font-family: 'Josefin Sans';
@@ -20,6 +20,7 @@
             align-items: center;
             height: 100vh;
             font-family: 'Josefin Sans', sans-serif;
+            overflow: hidden; /* Prevent overflow issues with games */
         }
 
         .navbar {
@@ -49,35 +50,22 @@
             margin-left: auto;
         }
 
-        .content {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .iframe-container {
-            width: 90%;
-            height: 90%;
-            border: none;
-            background-color: #111; /* Dark background for better contrast */
-            position: relative;
-        }
-
-        .footer {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
+        .fullscreen-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #555;
             color: white;
-            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            z-index: 1000;
         }
 
-        .footer img {
-            width: 200px;
-            height: auto;
-            margin-top: 10px;
+        .fullscreen-button:hover {
+            background-color: #777;
         }
     </style>
 </head>
@@ -90,29 +78,35 @@
         <a href="#">Settings</a>
     </div>
 
-    <!-- Main Content -->
-    <div class="content">
-        <!-- Iframe for game display -->
-        <div class="iframe-container">
-            <iframe id="game-frame" src="" width="100%" height="100%" frameborder="0"></iframe>
-        </div>
-    </div>
+    <!-- Game Content -->
+    <iframe src="" id="game-frame" style="width: 100%; height: calc(100vh - 50px); border: none;"></iframe>
 
-    <!-- Footer with Image and Text -->
-    <div class="footer">
-        <p>When you want to exit the game, press the back arrow button on your Chromebook or in the browser.</p>
-        <img src="images/back-example.png" alt="Back Example">
-    </div>
+    <!-- Fullscreen Button -->
+    <button class="fullscreen-button" onclick="toggleFullscreen()">Fullscreen</button>
 
-    <!-- JavaScript to handle game URL detection and loading -->
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const gameUrl = params.get('gameUrl');
-        
-        if (gameUrl) {
-            document.getElementById('game-frame').src = `/${gameUrl}`;
-        } else {
-            document.getElementById('game-frame').src = '/games';
+        // Set the source URL based on the current path
+        const path = window.location.pathname.replace('/player/', '/games/');
+        const game = path.substring(path.lastIndexOf('/') + 1);
+        document.getElementById('game-frame').src = `${path}.html`;
+
+        function toggleFullscreen() {
+            const element = document.documentElement;
+            if (!document.fullscreenElement) {
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.mozRequestFullScreen) { // Firefox
+                    element.mozRequestFullScreen();
+                } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) { // IE/Edge
+                    element.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
         }
     </script>
 </body>
