@@ -1,21 +1,6 @@
 {
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/games/:slug*", "destination": "/player?game=:slug*" },
-    { "source": "/player", "destination": "/404.html" }
-  ],
   "routes": [
     { "src": "/(.*)", "status": 404, "dest": "/404.html" }
-  ],
-  "headers": [
-    {
-      "source": "/js/particles/particles.min.js",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
-    }
   ]
 }
