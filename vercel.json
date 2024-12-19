@@ -1,6 +1,6 @@
 {
   "cleanUrls": true,
-  "redirects": [
-    { "source": "/(.*)", "destination": "/404.html", "permanent": true }
+  "routes": [
+    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
   ]
 }
