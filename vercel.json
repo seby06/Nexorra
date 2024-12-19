@@ -5,8 +5,5 @@
       "source": "/:path*",
       "destination": "/404.html"
     }
-  ],
-  "routes": [
-    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
   ]
 }
