@@ -44,7 +44,7 @@
 </head>
 <body>
     <!-- Game Content -->
-    <iframe src="/games/<%= game %>" id="game-frame" style="width: 100%; height: calc(100vh - 70px); border: none;"></iframe>
+    <iframe src="/games/<%= game %>/index.html" id="game-frame" style="width: 100%; height: calc(100vh - 70px); border: none;"></iframe>
 
     <!-- Fullscreen Button -->
     <button class="fullscreen-button" onclick="toggleFullscreen()">Fullscreen</button>
@@ -53,7 +53,7 @@
         // Set the game path based on the URL
         const urlParams = new URLSearchParams(window.location.search);
         const game = urlParams.get('game');
-        document.getElementById('game-frame').src = `/games/${game}.html`;
+        document.getElementById('game-frame').src = `/games/${game}/index.html`;
 
         function toggleFullscreen() {
             const element = document.documentElement;
