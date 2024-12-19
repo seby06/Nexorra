@@ -3,6 +3,7 @@
 <head>
     <title>Nexorra</title>
     <script src="js/particles/particles.min.js"></script> <!-- Local Particles.js -->
+    <link rel="stylesheet" type="text/css" href="css/loading.css"> <!-- Skeleton Screen CSS -->
     <style>
         @font-face {
             font-family: 'Josefin Sans';
@@ -69,27 +70,14 @@
 
         .text-size {
             font-size: 10em; /* Larger text size */
-            margin-top: -300px; /* Adjusts the position upwards */
             opacity: 0;
-            animation: fadeIn 2s forwards, slideDown 1s forwards;
+            transform: translateY(-300px);
+            transition: opacity 1s, transform 1s; /* Smooth transition */
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-300px);
-            }
-            to {
-                transform: translateY(0);
-            }
+        .text-size.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .button-open {
@@ -99,7 +87,7 @@
             padding: 1em 2em;
             font-size: 1em;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: -89px;
             border-radius: 5px;
             font-family: 'Josefin Sans', sans-serif; /* Use the same font as the rest */
         }
@@ -111,6 +99,13 @@
     </style>
 </head>
 <body>
+    <!-- Skeleton Screen -->
+    <div id="skeleton" class="skeleton-container">
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-button"></div>
+    </div>
+
     <!-- Particles.js container -->
     <div id="particles-js"></div>
 
@@ -123,7 +118,7 @@
     </div>
 
     <!-- Main Heading -->
-    <h1 class="text-center text-size">Nexorra</h1>
+    <h1 id="main-title" class="text-center text-size">Nexorra</h1>
 
     <!-- Button to open in about:blank -->
     <button class="button-open" onclick="openInAboutBlank()">Open in about:blank</button>
@@ -184,6 +179,16 @@
             newWindow.document.write(document.documentElement.outerHTML);
             newWindow.document.close();
         }
+
+        // Simulate loading
+        setTimeout(() => {
+            // Hide the skeleton screen
+            document.getElementById('skeleton').style.display = 'none';
+
+            // Add the visible class to the "Nexorra" title
+            const title = document.getElementById('main-title');
+            title.classList.add('visible');
+        }, 1000); // Adjust delay as needed
     </script>
 </body>
 </html>
