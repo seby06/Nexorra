@@ -16,9 +16,7 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
             font-family: 'Josefin Sans', sans-serif;
         }
 
@@ -45,10 +43,6 @@
             padding: 0 2em;
         }
 
-        .navbar a:nth-of-type(n+2) {
-            margin-left: auto;
-        }
-
         .content {
             text-align: center;
             margin-top: 100px;
@@ -56,11 +50,6 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-        }
-
-        .text-size {
-            font-size: 3em;
-            margin-bottom: 1em;
         }
 
         .custom-button {
@@ -81,7 +70,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             position: relative;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-decoration: none; /* Prevent underline */
+            text-decoration: none;
         }
 
         .custom-button:hover {
@@ -125,7 +114,6 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <div class="navbar">
         <a href="/" class="nexorra">Nexorra</a>  
         <a href="/games">Games</a>
@@ -133,46 +121,44 @@
         <a href="#">Settings</a>
     </div>
 
-    <!-- Main Content -->
     <div class="content">
-        <!-- Updated Clean URLs for All Games -->
-        <a href="/player.html?gameUrl=games/basket-random/index.html" class="custom-button">
+        <!-- Updated to use ?game= -->
+        <a href="/player.html?game=games/basket-random/index.html" class="custom-button">
             <img src="images/basket-random.png" alt="Basket Random">
             <span>Basket Random</span>
         </a>
 
-        <a href="/player.html?gameUrl=games/subway-surfers/index.html" class="custom-button">
+        <a href="/player.html?game=games/subway-surfers/index.html" class="custom-button">
             <img src="images/subway-surfers.png" alt="Subway Surfers">
             <span>Subway Surfers</span>
         </a>
 
-        <a href="/player.html?gameUrl=games/chrome-dino/index.html" class="custom-button">
+        <a href="/player.html?game=games/chrome-dino/index.html" class="custom-button">
             <img src="images/chrome-dino.png" alt="Chrome Dino">
             <span>Chrome Dino</span>
         </a>
 
-        <a href="/player.html?gameUrl=games/eaglercraft/index.html" class="custom-button">
+        <a href="/player.html?game=games/eaglercraft/index.html" class="custom-button">
             <img src="images/minecraft.png" alt="Minecraft">
             <span>Minecraft</span>
         </a>
 
-        <a href="/player.html?gameUrl=games/drift-boss/index.html" class="custom-button">
+        <a href="/player.html?game=games/drift-boss/index.html" class="custom-button">
             <img src="images/drift-boss.png" alt="Drift Boss">
             <span>Drift Boss</span>
         </a>
 
-        <a href="/player.html?gameUrl=games/nut-simulator/index.html" class="custom-button">
+        <a href="/player.html?game=games/nut-simulator/index.html" class="custom-button">
             <img src="images/nut-simulator.png" alt="Nut Simulator">
             <span>Nut Simulator</span>
         </a>
 
-        <a href="/player.html?gameUrl=games/the-impossible-quiz/index.html" class="custom-button">
+        <a href="/player.html?game=games/the-impossible-quiz/index.html" class="custom-button">
             <img src="images/the-impossible-quiz.png" alt="The Impossible Quiz">
             <span>The Impossible Quiz</span>
         </a>
     </div>
 
-    <!-- Footer with Image and Text -->
     <div class="footer">
         <p>When you want to exit the game, press the back arrow button on your Chromebook or in the browser.</p>
         <img src="images/back-example.png" alt="Back Example">

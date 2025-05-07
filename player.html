@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Player - Nexorra</title>
     <style>
         @font-face {
@@ -12,9 +11,9 @@
         }
 
         body {
-            margin: 0;
             background-color: black;
             color: white;
+            margin: 0;
             font-family: 'Josefin Sans', sans-serif;
             display: flex;
             flex-direction: column;
@@ -23,14 +22,13 @@
         }
 
         #game-frame {
-            width: 100%;
-            height: 100%;
+            flex: 1;
             border: none;
-            flex-grow: 1;
+            width: 100%;
         }
 
         .fullscreen-button {
-            position: fixed;
+            position: absolute;
             bottom: 20px;
             right: 20px;
             padding: 10px 20px;
@@ -49,31 +47,27 @@
     </style>
 </head>
 <body>
-    <!-- Game iframe -->
-    <iframe id="game-frame" allowfullscreen></iframe>
-
-    <!-- Fullscreen button -->
+    <iframe id="game-frame"></iframe>
     <button class="fullscreen-button" onclick="toggleFullscreen()">Fullscreen</button>
 
     <script>
-        const gameParam = new URLSearchParams(window.location.search).get('game');
-        const gameFrame = document.getElementById('game-frame');
+        const urlParams = new URLSearchParams(window.location.search);
+        const game = urlParams.get('game');
 
-        if (gameParam) {
-            gameFrame.src = `/games/${gameParam}/index.html`;
+        if (game) {
+            document.getElementById('game-frame').src = `/${game}`;
         } else {
-            gameFrame.src = '/404.html';
+            document.body.innerHTML = "<h1 style='color:white;text-align:center;'>No game specified.</h1>";
         }
 
         function toggleFullscreen() {
-            if (gameFrame.requestFullscreen) {
-                gameFrame.requestFullscreen();
-            } else if (gameFrame.mozRequestFullScreen) {
-                gameFrame.mozRequestFullScreen(); // Firefox
-            } else if (gameFrame.webkitRequestFullscreen) {
-                gameFrame.webkitRequestFullscreen(); // Chrome, Safari
-            } else if (gameFrame.msRequestFullscreen) {
-                gameFrame.msRequestFullscreen(); // IE/Edge
+            const iframe = document.getElementById('game-frame');
+            if (!document.fullscreenElement) {
+                iframe.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
             }
         }
     </script>
