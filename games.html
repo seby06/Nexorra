@@ -19,7 +19,7 @@
             align-items: center;
             font-family: 'Josefin Sans', sans-serif;
             min-height: 100vh;
-            justify-content: space-between;
+            justify-content: space-between; /* Ensures footer stays at bottom */
         }
 
         .navbar {
@@ -47,13 +47,14 @@
 
         .content {
             text-align: center;
-            margin-top: 100px; /* Adjust this if you want different vertical spacing */
+            margin-top: 100px; /* Adjust if needed */
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center; /* Ensures vertical centering */
-            gap: 20px; /* Adjust gap between icons */
+            gap: 20px;
             width: 100%;
+            flex-grow: 1; /* Allow content to expand to fill available space */
         }
 
         .custom-button {
@@ -108,6 +109,7 @@
             text-align: center;
             color: white;
             font-size: 1.2em;
+            margin-bottom: 20px; /* Ensures space at the bottom */
         }
 
         .footer img {
@@ -126,7 +128,7 @@
     </div>
 
     <div class="content">
-        <!-- Updated to use ?game= -->
+        <!-- Game links -->
         <a href="/player.html?game=games/basket-random/index.html" class="custom-button">
             <img src="images/basket-random.png" alt="Basket Random">
             <span>Basket Random</span>
