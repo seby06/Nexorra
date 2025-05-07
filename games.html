@@ -18,6 +18,8 @@
             flex-direction: column;
             align-items: center;
             font-family: 'Josefin Sans', sans-serif;
+            min-height: 100vh;
+            justify-content: space-between;
         }
 
         .navbar {
@@ -45,11 +47,13 @@
 
         .content {
             text-align: center;
-            margin-top: 100px;
+            margin-top: 100px; /* Adjust this if you want different vertical spacing */
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            align-items: center; /* Ensures vertical centering */
+            gap: 20px; /* Adjust gap between icons */
+            width: 100%;
         }
 
         .custom-button {
