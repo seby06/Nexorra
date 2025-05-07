@@ -14,7 +14,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: black;
+            background-color: black; /* Ensuring background is black */
             color: white;
             font-family: 'Josefin Sans', sans-serif;
             display: flex;
@@ -182,10 +182,12 @@
         // Simulate loading
         setTimeout(() => {
             // Fade out the loading screen
-            document.getElementById('loading-screen').style.opacity = '0';
+            const loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.style.opacity = '0';
+
             // Hide the loading screen after fading out
             setTimeout(() => {
-                document.getElementById('loading-screen').style.display = 'none';
+                loadingScreen.style.display = 'none';
             }, 1000);
 
             // Add the visible class to the "Nexorra" title
