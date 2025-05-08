@@ -26,6 +26,11 @@
             position: relative;
         }
 
+        /* Hide content initially */
+        .hidden {
+            display: none;
+        }
+
         /* Particles.js container */
         #particles-js {
             position: fixed; /* Keep particles fixed in the background */
@@ -99,28 +104,31 @@
     </style>
 </head>
 <body>
-    <!-- Particles.js container -->
-    <div id="particles-js"></div>
-
     <!-- Loading Screen -->
     <div id="loading-screen" class="loading-container">
         <div class="loading-circle"></div>
         <div class="loading-text">Loading...</div>
     </div>
 
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="index.html" class="nexorra">Nexorra</a>  
-        <a href="games.html">Games</a>
-        <a href="#">Proxy</a>
-        <a href="#">Settings</a>
+    <!-- Particles.js container -->
+    <div id="particles-js"></div>
+
+    <!-- Hidden content -->
+    <div id="page-content" class="hidden">
+        <!-- Navigation Bar -->
+        <div class="navbar">
+            <a href="index.html" class="nexorra">Nexorra</a>  
+            <a href="games.html">Games</a>
+            <a href="#">Proxy</a>
+            <a href="#">Settings</a>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 id="main-title" class="text-center text-size">Nexorra</h1>
+
+        <!-- Button to open in about:blank -->
+        <button class="button-open" onclick="openInAboutBlank()">Open in about:blank</button>
     </div>
-
-    <!-- Main Heading -->
-    <h1 id="main-title" class="text-center text-size">Nexorra</h1>
-
-    <!-- Button to open in about:blank -->
-    <button class="button-open" onclick="openInAboutBlank()">Open in about:blank</button>
 
     <!-- Particles.js Initialization Script -->
     <script>
@@ -181,19 +189,20 @@
 
         // Simulate loading
         setTimeout(() => {
-            // Fade out the loading screen
+            // Hide the loading screen
             const loadingScreen = document.getElementById('loading-screen');
             loadingScreen.style.opacity = '0';
 
-            // Hide the loading screen after fading out
+            // After loading screen fades out, show the page content
             setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 1000);
+                loadingScreen.style.display = 'none'; // Remove loading screen
+                document.getElementById('page-content').classList.remove('hidden'); // Show the content
+            }, 1000); // Adjust delay to match the loading screen fade-out time
 
             // Add the visible class to the "Nexorra" title
             const title = document.getElementById('main-title');
             title.classList.add('visible');
-        }, 2000); // Adjust delay as needed
+        }, 2000); // Simulate loading time (2 seconds)
     </script>
 </body>
 </html>
